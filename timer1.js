@@ -1,8 +1,11 @@
 // Get command line arguments
 const args = process.argv.slice(2);
 
+// Filter negative numbers and non numeric values
+const validArgs = args.filter(time => !isNaN(time) && parseInt(time) >= 0);
+
 // use map function to iterate each element in the args array
-const alarms = args.map(time => {
+const alarms = validArgs.map(time => {
   // declare delay variable to reuse th time in milliseconds
   const delay = parseInt(time) * 1000;
   return delay;
